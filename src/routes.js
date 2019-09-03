@@ -7,9 +7,11 @@ const authMiddleware = require('./middlewares/auth');
 
 const TodoController = require("./controllers/TodoController");
 const UserController = require("./controllers/UserController");
+const AuthController = require("./controllers/AuthController");
 
-routes.post("/auth/register", UserController.register);
-routes.post("/auth/login", UserController.login);
+routes.post("/auth/register", AuthController.register);
+routes.post("/auth/login", AuthController.login);
+routes.post("/auth/token", AuthController.token);
 
 routes.get("/user", UserController.getAll);
 routes.delete("/user/:id", authMiddleware, UserController.delete);
