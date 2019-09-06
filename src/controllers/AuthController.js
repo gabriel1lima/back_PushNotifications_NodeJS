@@ -79,7 +79,7 @@ class AuthController {
         res.send({ token });
       });
     } else {
-      res.status(401).send({ error: 'Erro no Token de atualização fornecido' });
+      res.status(498).send({ error: 'Erro no Token de atualização fornecido' });
     } 
     
   }
