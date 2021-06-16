@@ -7,7 +7,7 @@ admin.initializeApp({
 });
 
 // This registration token comes from the client FCM SDKs.
-var registrationToken = '';
+var registrationToken = 'eSQum8TcSEGP8SUK-AXznx:APA91bGz8lEH32qHLjTfztcvbuCiTrC-ef-DnXUQco-hOy87GtJqthzN6-lv2MrvjKq4ESg2n4QQ65zDGaQyc3Z-oLjgeXKRn9PtLCWoZM1J7jjyXBOzD5a2er1qfOQJRhCIvKNzshB2';
 
 var payload = {
   notification: {
@@ -31,8 +31,10 @@ var options = {
 // registration token.
 
 function send(todo){
-    payload.notification.title = todo.title;
-    payload.notification.body = todo.author;
+    payload.notification.title = 'Você adicionou uma nova tarefa';
+    payload.notification.body = `${todo.title} | Status: ${todo.done ? 'Feita' : 'À Fazer'}`;
+
+    console.log('payload ->', payload);
 
     admin.messaging().sendToDevice(registrationToken, payload, options)
       .then((response) => {

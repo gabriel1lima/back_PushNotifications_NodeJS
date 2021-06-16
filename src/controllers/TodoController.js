@@ -18,7 +18,7 @@ class TodoController {
   async create(req, res) {
     const todo = await Todo.create(req.body);
 
-    // send(todo);
+    send(todo);
     
     return res.json({todo});
   }
